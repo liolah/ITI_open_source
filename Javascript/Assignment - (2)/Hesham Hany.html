@@ -1,0 +1,114 @@
+<!-- Page made by Hesham Hany -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Multiplication table - Circle properties</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+  <div>
+    <input type="text" id="username" placeholder="Enter your name">
+    <button id="btn" onclick="sayHi()">Say Hello 😄</button>
+    <p id="greetings"></p>
+  </div>
+  <div>
+    <h1>Multiplication table</h1>
+    <table id="mt" border="2" style="text-align: center;">
+      <th> I </th>
+      <th> I * 5</th>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+      
+    </table>
+    <p id="ff"></p>
+  </div>
+  <div>
+    <h1>Circle circumference and area calculator</h1>
+    <div>
+      <label for="rad">Radius:</label>
+      <input type="number" id="rad" placeholder="Enter the radius">
+    </div>
+    <div>
+      <div>
+        <button onclick="calcCircumference()">Calculate the circumference</button>
+        <P id="resc">The circumference of the circle is unknown until you enter a value for the radius!</P>
+      </div>
+      <div>
+        <button onclick="calcArea()">Calculate the area</button>
+        <P id="resa">The area of the circle is unknown until you enter a value for the radius!</P>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    //----------------------------------- First question (saying hi to the user) -------------------------------------------
+    function sayHi (){
+      var un = document.getElementById("username").value;
+      document.getElementById("username").style.display = "none";
+      document.getElementById("btn").style.display = "none";
+      document.getElementById("greetings").innerHTML = `Welcome ${un}, have fun in my website 😊`
+    }
+
+    //------------------------------- Second question (the multiplication table) ------------------------------------------
+    for(var i = 1; i <= 11; i++){
+        document.getElementById("mt").rows[i].cells[0].innerHTML = i-1;
+        document.getElementById("mt").rows[i].cells[1].innerHTML = (i-1)*5;
+    }
+
+    //----------------------------- Third question (circumference and area of a circle) ------------------------------------
+    function calcCircumference(){
+      var r = document.getElementById("rad").value;
+      var c = (r * Math.PI * 2).toFixed(2);
+      document.getElementById("resc").innerHTML = `The circumference of the circle is ${c}`
+    }
+
+    function calcArea(){
+      var r = document.getElementById("rad").value;
+      var a = (r**2 * Math.PI).toFixed(2);
+      document.getElementById("resa").innerHTML = `The area of the circle is ${a}`
+    }
+  </script>
+</body>
+</html>

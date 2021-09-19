@@ -1,0 +1,66 @@
+<!------------------------------------------------------------ Hesham Hany ---------------------------------------------------------------->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Focused field form</title>
+  </head>
+  <body>
+    <form action="Date and time.html" method="GET" target="_blank">
+      <div>
+        <label for="un">User Name:</label>
+        <input
+          type="text"
+          id="un"
+          name="username"
+          value="Enter your user name here"
+          style="width: 200px"
+          onblur="validate()"
+          onfocus="
+          if (
+            document.getElementsByName('username')[0].value ==
+            'Enter your user name here'
+          ) {
+            document.getElementsByName('username')[0].value = '';
+          }"
+        />
+        <p
+          id="error"
+          style="
+            color: white;
+            background-color: red;
+            padding: 5px;
+            display: none;
+          "
+        >
+          User name invalid - name should be characters only and more than 3
+          letters.
+        </p>
+      </div>
+      <br />
+      <div>
+        <label for="pass">Password:</label>
+        <input type="password" id="pass" name="password" required />
+      </div>
+      <br />
+      <div>
+        <input type="submit" value="Login" id="btn" disabled />
+      </div>
+    </form>
+    <script type="text/javascript">
+      var unRegex = /^[a-z]{3,}$/i;
+      function validate() {
+        var un = document.getElementById("un").value;
+        if (!unRegex.test(un)) {
+          document.getElementById("error").style.display = "inline";
+          document.getElementsByName("username")[0].focus();
+          document.getElementsByName("username")[0].select();
+        } else {
+          document.getElementById("error").style.display = "none";
+          document.getElementById("btn").disabled = false;
+          document.getElementsByName("password")[0].focus();
+        }
+      }
+    </script>
+  </body>
+</html>

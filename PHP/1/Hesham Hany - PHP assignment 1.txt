@@ -1,0 +1,53 @@
+//-------------------------------------------------------------------------------------- 1 -----------------------------------------------------------------------------------------------
+
+Answered in Assignment 1 Q 1.php
+
+//-------------------------------------------------------------------------------------- 2 -----------------------------------------------------------------------------------------------
+
+$x = 5;
+echo $x;  // 5
+echo "<br />";
+echo $x+++$x++;  // 5 + 6
+echo "<br />";
+echo $x; // 7
+echo "<br />";
+echo $x---$x--; // 7 - 6
+echo "<br />";
+echo $x; // 5
+
+The output is:
+
+5
+11
+7
+1
+5
+
+//-------------------------------------------------------------------------------------- 3 -----------------------------------------------------------------------------------------------
+
+$a = '1'; // a contains '1' (string)
+$b = &$a; // b now shares the same location in memory as a, therefore, if b changes a will change
+$b = "2$b"; // b = "21" , and so does a, therefore a = "21"
+
+//-------------------------------------------------------------------------------------- 4 -----------------------------------------------------------------------------------------------
+
+GET:
+	Used to retrieve data. GET method is query string (name/value pairs) is sent in the URL of the HTTP request. Additionally, its HTTP request can be cached,
+ bookmarked, and remain in the browser history. Therefore, it shouldn't be used when dealing with sensitive data. 
+
+POST:
+	Used to insert/Update data. The data sent to the server with POST is in the body of the HTTP request. Therefore, it cann't be chached or bookmarked, and doesn't 
+remain in the browser history. 
+
+//-------------------------------------------------------------------------------------- 5 -----------------------------------------------------------------------------------------------
+
+Answered in Assignment 1 Q 5.php
+
+//-------------------------------------------------------------------------------------- 6 -----------------------------------------------------------------------------------------------
+
+Both echo and print are used to output data on the screen.
+
+The differences are:
+	echo has no return value, while print returns 1
+	echo can take multiple parameters, while print takes one only
+	echo is faster than print

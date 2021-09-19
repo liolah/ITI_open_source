@@ -1,0 +1,196 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  background-color: rgb(231, 231, 231);
+}
+
+span {
+  color: rgb(231, 231, 231);
+}
+
+img {
+  height: 200px;
+  width: 200px;
+  margin: -60px 40px 35px;
+}
+
+.header {
+  background-color: #555;
+}
+
+.header > div {
+  display: inline-block;
+  margin-top: 60px;
+}
+.name {
+  font-size: 60px;
+  font-weight: 500;
+  color: white;
+  text-transform: uppercase;
+  font-family: calibri;
+  letter-spacing: 3px;
+}
+
+.bar {
+  width: 360px;
+  height: 5px;
+  background-color: lightgray;
+  margin-bottom: 10px;
+}
+
+.job-title {
+  font-size: 30px;
+  font-weight: 400;
+  color: white;
+  text-transform: capitalize;
+  font-family: arial;
+}
+
+h1 {
+  background-color: rgb(201, 201, 201);
+  font-size: 25px;
+  font-weight: bold;
+  color: #444;
+  text-transform: uppercase;
+  font-family: arial;
+  padding: 5px 40px;
+}
+
+.jobs {
+  list-style-type: square;
+  font-size: 25px;
+  text-transform: capitalize;
+  font-weight: bold;
+  margin: 20px;
+}
+
+.jobs p {
+  font-size: 15px;
+  font-weight: normal;
+}
+
+.job li {
+  margin-bottom: 70px;
+  position: relative;
+  bottom: 65px;
+  line-height: 1.5;
+}
+
+.jobs li {
+  margin-bottom: 70px;
+  position: relative;
+  bottom: 65px;
+  line-height: 1.5;
+}
+
+.part {
+  display: inline-block;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+.description {
+  list-style-type: none;
+  font-size: 15px;
+  max-width: 450px;
+}
+
+.foot {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.contacts {
+  font-size: 15px;
+  text-transform: capitalize;
+  margin: 40px 20px;
+}
+
+.icon {
+  line-height: 2.5;
+}
+
+.icon li:nth-of-type(1) {
+  list-style-image: url("../imgs/geo-alt-fill.svg");
+}
+
+.icon li:nth-of-type(2) {
+  list-style-image: url("../imgs/telephone-fill.svg");
+}
+
+.icon li:nth-of-type(3) {
+  list-style-image: url("../imgs/envelope-fill.svg");
+}
+
+.icon li:nth-of-type(4) {
+  list-style-image: url("../imgs/globe2.svg");
+}
+
+.skill {
+  line-height: 2.5;
+}
+
+.skill div {
+  display: inline-block;
+}
+
+.skill div:nth-child(odd) {
+  width: 70px;
+  height: 10px;
+  background-color: #444;
+  margin-left: 10px;
+}
+
+.skill div:nth-of-type(even) {
+  width: 30px;
+  height: 10px;
+  background-color: rgb(201, 201, 201);
+  margin-right: 30px;
+  position: relative;
+  right: 4px;
+}
+
+.up {
+  position: relative;
+  bottom: 187px;
+}
+
+table {
+  margin: 40px;
+}
+
+a {
+  color: #444;
+}
+
+a:hover {
+  color: lightskyblue;
+  text-decoration: none;
+}
+
+a:visited {
+  color: green;
+  text-decoration: none;
+}
+
+a:active {
+  color: purple;
+}
+
+.job li {
+  margin-bottom: 31px;
+  position: relative;
+  bottom: 18px;
+  line-height: 1.5;
+}
+
+.left {
+  position: relative;
+  left: 55px;
+}

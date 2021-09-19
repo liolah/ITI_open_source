@@ -1,0 +1,69 @@
+ Create database airlines_db;
+
+ Use airlines_db;
+
+ Create table airline (
+    -> id int unsigned auto_increment primary key,
+    -> phone int unsigned not null,
+    -> name varchar(30) not null,
+    -> address varchar(30) not null,
+    -> cont_person varchar(30) not null
+    -> );
+
+ create table employee (
+    -> id int unsigned auto_increment primary key,
+    -> airline_id int unsigned,
+    -> name varchar(30) not null,
+    -> position varchar(30) not null,
+    -> address varchar(30) not null,
+    -> sex varchar(10) not null,
+    -> qualification varchar(50) not null,
+    -> b_day date not null,
+    -> foreign key(airline_id) references airline(id) on update cascade on delete cascade
+    -> );
+
+ create table transactions (
+    -> id int unsigned auto_increment primary key,
+    -> airline_id int unsigned,
+    -> amount int unsigned not null,
+    -> date date not null,
+    -> type varchar(30) not null,
+    -> description varchar(100) not null,
+    -> foreign key(airline_id) references airline(id) on update cascade on delete cascade
+    -> );
+
+ create table aircraft (
+    -> id int unsigned auto_increment primary key,
+    -> airline_id int unsigned,
+    -> capacity int unsigned not null,
+    -> model varchar(20) not null,
+    -> foreign key(airline_id) references airline(id) on update cascade on delete cascade
+    -> );
+
+ create table route (
+    -> id int unsigned auto_increment primary key,
+    -> price int unsigned not null,
+    -> distance int unsigned not null,
+    -> origin varchar(30) not null,
+    -> destination varchar(30) not null,
+    -> classification varchar(30) not null
+    -> );
+
+ create table flight (
+    -> aircraft_id int unsigned,
+    -> route_id int unsigned,
+    -> passengers_num int unsigned not null,
+    -> fly_time date not null,
+    -> dep_time date not null,
+    -> arriv_time date not null,
+    -> foreign key(aircraft_id) references aircraft(id) on update cascade on delete cascade,
+    -> foreign key(route_id) references route(id) on update cascade on delete cascade
+    -> );
+
+ create table crew (
+    -> major_pilot int unsigned primary key,
+    -> assess_pilot varchar(20) not null,
+    -> hostess varchar(20) not null,
+    -> hostessB varchar(20) not null,
+    -> foreign key(major_pilot) references aircraft(id) on update cascade on delete cascade
+    -> );

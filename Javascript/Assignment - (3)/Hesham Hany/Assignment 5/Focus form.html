@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Focused field form</title>
+  </head>
+  <body>
+    <form
+      action="Date and time.html"
+      method="GET"
+      onsubmit="return validate()"
+      target="_blank"
+    >
+      <div>
+        <label for="un">User Name:</label>
+        <input
+          type="text"
+          id="un"
+          name="username"
+          value="Enter your user name here"
+          onfocus=""
+          required
+        />
+        <p id="error"></p>
+      </div>
+      <div>
+        <label for="pass">Password:</label>
+        <input type="password" id="pass" name="password" required />
+      </div>
+      <div>
+        <input type="submit" value="Login" />
+      </div>
+    </form>
+    <p>The page is not completed. The complete page will be sent soon.</p>
+    <script type="text/javascript">
+      var unRegex = /^[a-z]{3,}$/i;
+      function validate() {
+        var un = document.getElementById("un").value;
+        if (!unRegex.test(un)) {
+          document.getElementsById("error").innerHTML =
+            "User name invalid - name should be characters only and more than 3 letters.";
+          return false;
+        }
+      }
+    </script>
+  </body>
+</html>

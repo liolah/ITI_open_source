@@ -1,0 +1,42 @@
+<!-- This page was made by Hesham Hany  -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Age Calculator - Temperature converter</title>
+    <link rel="stylesheet" type="text/CSS" href="CSS/style.css" />
+  </head>
+  <body>
+    <div class="parent">
+      <div class="age child">
+        <div>
+          <label for="birth year">Birth year:</label>
+          <input type="number" id="birth year" />
+        </div>
+        <div>
+          <label for="future year">Future year:</label>
+          <input type="number" id="future year" />
+        </div>
+        <div>
+          <button type="button" onclick="calculateAge()">Calculate</button>
+        </div>
+        <div><p id="result">Enter the years!</p></div>
+      </div>
+      <div class="bar"></div>
+      <div class="temp child">
+        <div>
+          <label for="cel">Temperature in celecius:</label>
+          <input type="number" id="cel" placeholder="C°"/>
+        </div>
+        <div><p id="resultf">NN°C is NN°F</p></div>
+        <div>
+          <label for="feh">Temperature in fehrenhite:</label>
+          <input type="number" id="feh" placeholder="F°" />
+        </div>
+        <div><p id="resultc">NN°F is NN°C</p></div>
+        <div><button type="button" onclick="convertTemp()">Convert</button></div>
+      </div>
+    </div>
+    <script type="text/javascript" src="JS/script.js"></script>
+  </body>
+</html>

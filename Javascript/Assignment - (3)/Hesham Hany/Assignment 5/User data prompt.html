@@ -1,0 +1,49 @@
+<!-------------------------------------------------------------- Hesham Hany --------------------------------------------------->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>User data validation with RegExp</title>
+  </head>
+  <body>
+    <form action="" method="GET" onsubmit="return validate()">
+      <div>
+        <label for="un">User Name:</label>
+        <input type="text" id="un" placeholder="User Name" name="usrnm" />
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" placeholder="Email" name="em" />
+      </div>
+      <div>
+        <label for="tel">Phone Number:</label>
+        <input type="tel" id="tel" placeholder="Number" name="num" />
+      </div>
+      <div>
+        <input type="submit" />
+        <input type="reset" />
+      </div>
+    </form>
+    <script type="text/javascript">
+      var unRegex = /^[a-z]{3,}$/i;
+      var emRegex = /.*@.*\..*\..*/i; // To test anything@anything.anything.anything . To test anything@anything.com.eg use /.*@.*\.com\.eg$/
+      var pnRegex = /^(010|012|011)\d{8}$/;
+      function validate() {
+        var un = document.getElementById("un").value;
+        var em = document.getElementById("email").value;
+        var pn = document.getElementById("tel").value;
+        if (!unRegex.test(un)) {
+          alert("User name should be characters only and more than 3 letters!");
+        }
+        if (!emRegex.test(em)) {
+          alert("Email must be in this format: name@domain.com.eg");
+        }
+        if (!pnRegex.test(pn)) {
+          alert(
+            "Mobile no. must be 11 numbers (not letters), and starts with: (010,012,011)."
+          );
+        }
+      }
+    </script>
+  </body>
+</html>

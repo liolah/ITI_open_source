@@ -1,0 +1,29 @@
+create database gradebook;
+
+use gradebook;
+
+create user 'hesham'@'localhost' identified by '123456';
+
+grant all
+   -> on gradebook.*
+   -> to 'hesham'@'localhost'
+   -> with grant option;
+
+create table students (
+   -> name char(50) not null,
+   -> contact char(100) not null,
+   -> email char(50) not null,
+   -> password char(50) not null
+   -> );
+
+create table test (
+   -> type char(50) not null,
+   -> score int unsigned not null,
+   -> max_score int unsigned not null,
+   -> date date not null
+   -> );
+
+create table subject (
+   -> name char(50) not null,
+   -> total_grade int unsigned not null
+   -> );

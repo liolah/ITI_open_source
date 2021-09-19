@@ -1,0 +1,21 @@
+<!-- -------------------------------------------------------- Hesham Hany ------------------------------------------------------------>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Date and Time</title>
+  </head>
+  <body>
+    <div>
+      <p id="date">Current date and time</p>
+      <button onclick="updateTime()">Update Time</button>
+    </div>
+    <div></div>
+    <script type="text/javascript">
+      function updateTime() {
+        var t = new Date();
+        document.getElementById("date").innerHTML = t.toLocaleString();
+      }
+    </script>
+  </body>
+</html>

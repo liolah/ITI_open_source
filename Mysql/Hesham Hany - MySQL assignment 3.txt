@@ -1,0 +1,350 @@
+//------------------------------------------------------------------------------------- 1 ---------------------------------------------------------------------------------------
+ alter table students
+    -> add gender enum('male','female') not null;
+
+//------------------------------------------------------------------------------------- 2 ---------------------------------------------------------------------------------------
+
+ alter table students
+    -> add birth_date date not null;
+
+//------------------------------------------------------------------------------------- 3 ---------------------------------------------------------------------------------------
+
+ alter table students
+    -> drop name;
+
+ alter table students
+    -> add first_name varchar(20) not null first,
+    -> add last_name varchar(20) not null after first_name;
+
+//------------------------------------------------------------------------------------- 4 ---------------------------------------------------------------------------------------
+
+ insert into students (id,first_name,last_name,contact,email,password,gender,birth_date)
+    -> values
+    -> (47,'Hesham', 'Hany',01278514344,'blablabla@bla.bla','password','male','2001-11-28'),
+    -> (14,'Adolf','Hitler',01234567897,'blablabla@bla.bla','password','male','1896-10-25'),
+    -> (21,'Peter','Parker',01234567897,'blablabla@bla.bla','password','male','1995-7-17');
+
+ insert into students (id,first_name,last_name,contact,email,password,gender,birth_date)
+    -> values
+    -> (67,'Mohammed','Ali',01234567897,'blablabla@bla.bla','password','male','1983-7-15');
+
+ insert into students
+    -> values
+    -> (37,'Nour','Ali',01234567897,'blablabla@bla.bla','password','female','1993-3-15'),
+    -> (41,'Aya','Shalaby',01234567897,'blablabla@bla.bla','password','female','1983-3-15'),
+    -> (62,'Shahenda','Peter',01234567897,'blablabla@bla.bla','password','female','2003-7-25');
+
+//------------------------------------------------------------------------------------- 5 ---------------------------------------------------------------------------------------
+
+ update students
+    -> set contact = 01236549879
+    -> where id = 47 ;
+
+//------------------------------------------------------------------------------------- 6 ---------------------------------------------------------------------------------------
+
+ select * from students;
++----+------------+-----------+------------+-------------------+----------+--------+------------+
+| id | first_name | last_name | contact    | email             | password | gender | birth_date |
++----+------------+-----------+------------+-------------------+----------+--------+------------+
+| 14 | Adolf      | Hitler    | 1234567897 | blablabla@bla.bla | password | male   | 1896-10-25 |
+| 21 | Peter      | Parker    | 1234567897 | blablabla@bla.bla | password | male   | 1995-07-17 |
+| 37 | Nour       | Ali       | 1234567897 | blablabla@bla.bla | password | female | 1993-03-15 |
+| 41 | Aya        | Shalaby   | 1234567897 | blablabla@bla.bla | password | female | 1983-03-15 |
+| 47 | Hesham     | Hany      | 1236549879 | blablabla@bla.bla | password | male   | 2001-11-28 |
+| 62 | Shahenda   | Peter     | 1234567897 | blablabla@bla.bla | password | female | 2003-07-25 |
+| 67 | Mohammed   | Ali       | 1234567897 | blablabla@bla.bla | password | male   | 1983-07-15 |
++----+------------+-----------+------------+-------------------+----------+--------+------------+
+
+//------------------------------------------------------------------------------------- 7 ---------------------------------------------------------------------------------------
+
+ select * from students
+    -> where gender ='male';
++----+------------+-----------+------------+-------------------+----------+--------+------------+
+| id | first_name | last_name | contact    | email             | password | gender | birth_date |
++----+------------+-----------+------------+-------------------+----------+--------+------------+
+| 14 | Adolf      | Hitler    | 1234567897 | blablabla@bla.bla | password | male   | 1896-10-25 |
+| 21 | Peter      | Parker    | 1234567897 | blablabla@bla.bla | password | male   | 1995-07-17 |
+| 47 | Hesham     | Hany      | 1236549879 | blablabla@bla.bla | password | male   | 2001-11-28 |
+| 67 | Mohammed   | Ali       | 1234567897 | blablabla@bla.bla | password | male   | 1983-07-15 |
++----+------------+-----------+------------+-------------------+----------+--------+------------+
+
+//------------------------------------------------------------------------------------- 8 ---------------------------------------------------------------------------------------
+
+ select count(gender) from students
+    -> where gender = 'female';
++---------------+
+| count(gender) |
++---------------+
+|             3 |
++---------------+
+
+//------------------------------------------------------------------------------------- 9 ---------------------------------------------------------------------------------------
+
+ select * from students
+    -> where birth_date < '1992-10-01';
++----+------------+-----------+------------+-------------------+----------+--------+------------+
+| id | first_name | last_name | contact    | email             | password | gender | birth_date |
++----+------------+-----------+------------+-------------------+----------+--------+------------+
+| 14 | Adolf      | Hitler    | 1234567897 | blablabla@bla.bla | password | male   | 1896-10-25 |
+| 41 | Aya        | Shalaby   | 1234567897 | blablabla@bla.bla | password | female | 1983-03-15 |
+| 67 | Mohammed   | Ali       | 1234567897 | blablabla@bla.bla | password | male   | 1983-07-15 |
++----+------------+-----------+------------+-------------------+----------+--------+------------+
+
+//------------------------------------------------------------------------------------- 10 ---------------------------------------------------------------------------------------
+
+mysql> select * from students
+    -> where birth_date < '1991-10-01' and gender = 'male';
++----+------------+-----------+------------+-------------------+----------+--------+------------+
+| id | first_name | last_name | contact    | email             | password | gender | birth_date |
++----+------------+-----------+------------+-------------------+----------+--------+------------+
+| 14 | Adolf      | Hitler    | 1234567897 | blablabla@bla.bla | password | male   | 1896-10-25 |
+| 67 | Mohammed   | Ali       | 1234567897 | blablabla@bla.bla | password | male   | 1983-07-15 |
++----+------------+-----------+------------+-------------------+----------+--------+------------+
+
+//------------------------------------------------------------------------------------- 11 ---------------------------------------------------------------------------------------
+
+//Ordered descendingly
+
+ select * from subject
+    -> order by total_grade desc;
++----------------+-------------+
+| name           | total_grade |
++----------------+-------------+
+| OS             |         120 |
+| Measurements   |         100 |
+| Signals        |          90 |
+| Calculus       |          80 |
+| Data structure |          75 |
+| Electronics    |          70 |
++----------------+-------------+
+
+//Ordered ascendingly
+
+ select * from subject
+    -> order by total_grade asc;
++----------------+-------------+
+| name           | total_grade |
++----------------+-------------+
+| Electronics    |          70 |
+| Data structure |          75 |
+| Calculus       |          80 |
+| Signals        |          90 |
+| Measurements   |         100 |
+| OS             |         120 |
++----------------+-------------+
+
+//------------------------------------------------------------------------------------- 12 ---------------------------------------------------------------------------------------
+
+ select name from subject
+    -> order by total_grade desc
+    -> limit 0,1;
++------+
+| name |
++------+
+| OS   |
++------+
+
+ select name from subject
+    -> where total_grade = (select max(total_grade) from subject);
++------+
+| name |
++------+
+| OS   |
++------+
+
+//------------------------------------------------------------------------------------- 13 ---------------------------------------------------------------------------------------
+
+ select first_name from students
+    -> where first_name like 'a%';
++------------+
+| first_name |
++------------+
+| Adolf      |
+| Aya        |
++------------+
+
+//------------------------------------------------------------------------------------- 14 ---------------------------------------------------------------------------------------
+
+ select count(first_name) from students
+    -> where first_name = 'Mohammed';
++-------------------+
+| count(first_name) |
++-------------------+
+|                 1 |
++-------------------+
+
+//------------------------------------------------------------------------------------- 15 ---------------------------------------------------------------------------------------
+
+//Num of males
+
+ select count(gender) from students
+    -> where gender ='male';
++---------------+
+| count(gender) |
++---------------+
+|             4 |
++---------------+
+
+//Num of females
+
+ select count(gender) from students
+    -> where gender ='female';
++---------------+
+| count(gender) |
++---------------+
+|             3 |
++---------------+
+
+//Total num of males and females
+
+ select count(gender) from students
+    -> where gender ='male' or gender = 'female';
++---------------+
+| count(gender) |
++---------------+
+|             7 |
++---------------+
+
+//------------------------------------------------------------------------------------- 16 ---------------------------------------------------------------------------------------
+
+ select first_name, count(first_name) from students
+    -> group by first_name
+    -> having count(first_name) > 2;
+Empty set (0.00 sec)
+
+//------------------------------------------------------------------------------------- 17 ---------------------------------------------------------------------------------------
+
+ select students.first_name , test.score, test.assessment_type
+    -> from students,test
+    -> where students.id = test.student_id;
++------------+-------+------------------------------------+
+| first_name | score | assessment_type                    |
++------------+-------+------------------------------------+
+| Adolf      |    35 | Academy of Fine Arts Entrance Exam |
+| Peter      |    85 | Calculus-MCQ                       |
+| Nour       |    74 | OS-Written                         |
+| Aya        |    87 | Report writing-Written             |
+| Hesham     |   100 | C++ -Lab                           |
+| Shahenda   |   100 | Electronics-Lab                    |
+| Mohammed   |    85 | History-MCQ                        |
++------------+-------+------------------------------------+
+
+//Same but ordered according to name
+
+ select students.first_name , test.score, test.assessment_type
+    -> from students,test
+    -> where students.id = test.student_id
+    -> order by students.first_name asc;
++------------+-------+------------------------------------+
+| first_name | score | assessment_type                    |
++------------+-------+------------------------------------+
+| Adolf      |    35 | Academy of Fine Arts Entrance Exam |
+| Aya        |    87 | Report writing-Written             |
+| Hesham     |   100 | C++ -Lab                           |
+| Mohammed   |    85 | History-MCQ                        |
+| Nour       |    74 | OS-Written                         |
+| Peter      |    85 | Calculus-MCQ                       |
+| Shahenda   |   100 | Electronics-Lab                    |
++------------+-------+------------------------------------+
+
+//------------------------------------------------------------------------------------- 18 ---------------------------------------------------------------------------------------
+
+//Students who are absent
+
+ select students.first_name
+    -> from students
+    -> inner join test on students.id = test.student_id
+    -> where isnull(test.score);
++------------+
+| first_name |
++------------+
+| Aya        |
++------------+
+
+//Students who were absent during the Report writing exam
+
+ select students.first_name
+    -> from students
+    -> inner join test on students.id = test.student_id
+    -> where isnull(test.score) and assessment_type ='Report writing-Written';
++------------+
+| first_name |
++------------+
+| Aya        |
++------------+
+
+//------------------------------------------------------------------------------------- 19 ---------------------------------------------------------------------------------------
+
+//Before deletion
+
+ select * from students;
++----+------------+-----------+------------+-------------------+----------+--------+------------+
+| id | first_name | last_name | contact    | email             | password | gender | birth_date |
++----+------------+-----------+------------+-------------------+----------+--------+------------+
+| 14 | Adolf      | Hitler    | 1234567897 | blablabla@bla.bla | password | male   | 1896-10-25 |
+| 21 | Peter      | Parker    | 1234567897 | blablabla@bla.bla | password | male   | 1995-07-17 |
+| 37 | Nour       | Ali       | 1234567897 | blablabla@bla.bla | password | female | 1993-03-15 |
+| 41 | Aya        | Shalaby   | 1234567897 | blablabla@bla.bla | password | female | 1983-03-15 |
+| 47 | Hesham     | Hany      | 1236549879 | blablabla@bla.bla | password | male   | 2001-11-28 |
+| 62 | Shahenda   | Peter     | 1234567897 | blablabla@bla.bla | password | female | 2003-07-25 |
+| 67 | Mohammed   | Ali       | 1234567897 | blablabla@bla.bla | password | male   | 1983-07-15 |
++----+------------+-----------+------------+-------------------+----------+--------+------------+
+
+ select * from test;
++------------+------------------------------------+-------+-----------+------------+
+| student_id | assessment_type                    | score | max_score | date       |
++------------+------------------------------------+-------+-----------+------------+
+|         14 | Academy of Fine Arts Entrance Exam |    35 |       100 | 1908-10-12 |
+|         21 | Calculus-MCQ                       |    85 |       100 | 2018-03-12 |
+|         37 | OS-Written                         |    74 |       100 | 2019-05-06 |
+|         41 | Report writing-Written             |  NULL |       100 | 2020-01-15 |
+|         47 | C++ -Lab                           |   100 |       100 | 2020-11-23 |
+|         62 | Electronics-Lab                    |   100 |       100 | 2021-10-23 |
+|         67 | History-MCQ                        |    85 |       100 | 2000-01-17 |
++------------+------------------------------------+-------+-----------+------------+
+
+//Delete students who got less than 50 in the Academy of Fine Arts Entrance Exam
+
+ delete students
+    -> from students
+    -> inner join test on students.id = test.student_id
+    -> where test.score < 50 and test.assessment_type ='Academy of Fine Arts Entrance Exam';
+
+//After deletion
+
+ select * from students;
++----+------------+-----------+------------+-------------------+----------+--------+------------+
+| id | first_name | last_name | contact    | email             | password | gender | birth_date |
++----+------------+-----------+------------+-------------------+----------+--------+------------+
+| 21 | Peter      | Parker    | 1234567897 | blablabla@bla.bla | password | male   | 1995-07-17 |
+| 37 | Nour       | Ali       | 1234567897 | blablabla@bla.bla | password | female | 1993-03-15 |
+| 41 | Aya        | Shalaby   | 1234567897 | blablabla@bla.bla | password | female | 1983-03-15 |
+| 47 | Hesham     | Hany      | 1236549879 | blablabla@bla.bla | password | male   | 2001-11-28 |
+| 62 | Shahenda   | Peter     | 1234567897 | blablabla@bla.bla | password | female | 2003-07-25 |
+| 67 | Mohammed   | Ali       | 1234567897 | blablabla@bla.bla | password | male   | 1983-07-15 |
++----+------------+-----------+------------+-------------------+----------+--------+------------+
+
+ select * from test;
++------------+------------------------+-------+-----------+------------+
+| student_id | assessment_type        | score | max_score | date       |
++------------+------------------------+-------+-----------+------------+
+|         21 | Calculus-MCQ           |    85 |       100 | 2018-03-12 |
+|         37 | OS-Written             |    74 |       100 | 2019-05-06 |
+|         41 | Report writing-Written |  NULL |       100 | 2020-01-15 |
+|         47 | C++ -Lab               |   100 |       100 | 2020-11-23 |
+|         62 | Electronics-Lab        |   100 |       100 | 2021-10-23 |
+|         67 | History-MCQ            |    85 |       100 | 2000-01-17 |
++------------+------------------------+-------+-----------+------------+
+
+//------------------------------------------------------------------------------------- 20 ---------------------------------------------------------------------------------------
+
+//If the student didn't attend the exam the score is null (not 0).
+
+ select first_name
+    -> from students
+    -> where id = (select student_id from test where isnull(score));
++------------+
+| first_name |
++------------+
+| Aya        |
++------------+

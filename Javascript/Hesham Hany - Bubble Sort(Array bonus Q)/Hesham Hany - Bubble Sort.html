@@ -1,0 +1,35 @@
+<!-- --------------------------------------------------------------- Hesham Hany --------------------------------------------------------------------- -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array Sort (Bubble sort)</title>
+  </head>
+  <body>
+    <p id="1"></p>
+    <button onclick="bubbleSort()">Sort</button>
+    <p id="2"></p>
+    <script>
+      let arr = [5, 8, 1, 9, 3, 7, 2, 4];
+      document.getElementById("1").innerHTML = arr + "<br>";
+      function bubbleSort() {
+        for (let i = 0; i < arr.length; i++) {
+          // repeat for each element in the array
+          for (let j = 0; j < arr.length; j++) {
+            if (arr[j] > arr[j + 1]) {
+              // Checks if the element is bigger than the next one. If so, it swaps them then moves to compare with the next element.
+              // In the end, the greatest number is sent to the end of the array. By repeating this process for each element, the array can be ordered ascendingly.
+              // This method is called bubble sort.
+              let a = arr[j];
+              arr[j] = arr[j + 1];
+              arr[j + 1] = a;
+            }
+          }
+        }
+        document.getElementById("2").innerHTML = arr;
+      }
+    </script>
+  </body>
+</html>
